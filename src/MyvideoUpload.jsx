@@ -69,11 +69,8 @@ class Myvideoupload extends React.Component {
     const myform = new FormData();
     myform.append("Video", document.getElementById("video").files[0]);
 
-    fetch("http://localhost:8080/VideoUpload", {
+    fetch("http://localhost:8080/UploadVideo", {
       method: "POST",
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
       body: myform,
     })
       .then(response => response.json())
