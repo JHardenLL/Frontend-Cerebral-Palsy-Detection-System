@@ -1,3 +1,4 @@
+import React from 'react';
 import { Card, Col, Row } from 'antd';
 import MyStatistic from './Statistic';
 import Myvidepupload from './MyvideoUpload';
@@ -14,9 +15,9 @@ const Card_divided = () => (
     </Col>
     
     <Col span={24}>
-      <Card title="上传视频" bordered={false} style={{height:300}}>
-        {/* <button onClick={()=>{
-                        fetch("http://localhost:8080/Hello",{
+      <Card title="上传视频" bordered={false} style={{height:1000}}>
+        <button onClick={()=>{
+                        fetch("http://192.168.61.111:8080/Hello",{
                           method:"GET",
                         })
                         .then(response=>response.json())
@@ -25,12 +26,31 @@ const Card_divided = () => (
                     }}>
           Hello
         </button>
-        <br></br>
+        {/* <br></br>
         <Login/>
         <br></br>
-        <Getinfo/>
-        <br></br> */}
+        <Getinfo/> */}
+        <br></br>
         <Myvidepupload/>
+        <button onClick={()=>{
+                        fetch("http://192.168.61.111:8080/StartDetection",{
+                          method:"POST",
+                        })
+                        .then(response=>response.json())
+                        .then(data=>{console.log(data);
+                            })
+                    }}>
+          Detection
+        </button>
+        <button onClick={()=>{
+                        fetch("http://192.168.61.111:8080/VideoRes",{
+                          method:"GET",
+                        })
+                        .then(response=>{console.log(response);console.log(response.url);})
+                    }}>
+          VideoRes
+        </button>
+        <video src="http://192.168.61.111:8080/VideoRes" controls></video>
       </Card>
     </Col>
 
